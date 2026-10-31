@@ -1,7 +1,7 @@
 {
   "experiment": {
     "budget": {
-      "max_evaluations": 200000,
+      "max_evaluations": 1000,
       "max_time_seconds": 3600
     },
     "cross_validation": {
@@ -55,16 +55,13 @@
   },
   "algorithm": "QLattice",
   "parameters": {
-    "total_models": 200000,
-    "models_per_sample": 10,
-    "threads": 1
+    "total_models": 10000,
+    "threads": 1,
+    "max_edges_per_model": 10,
+    "budget_accounting": "number of sampled models; last batch may overshoot slightly"
   },
   "tuning_space": {
-    "total_models": 200000,
-    "models_per_sample": {
-      "min": 1,
-      "max": 50
-    },
+    "total_models": 10000,
     "threads": {
       "min": 1,
       "max": "all_available",
@@ -84,5 +81,40 @@
     "tie_break": "lower_expression_complexity",
     "preserve_all_trials": true,
     "preserve_individual_fold_seed_results": true
+  },
+  "qlattice_compatibility": {
+    "feyn_version": "3.5.0",
+    "native_interactions": null,
+    "documented_capabilities": [
+      "addition",
+      "multiplication",
+      "square",
+      "exponential",
+      "logarithm",
+      "tanh",
+      "square_root",
+      "inverse",
+      "affine_weights"
+    ],
+    "operator_sets_exactly_enforced": false,
+    "reason": "QLattice/Feyn não oferece restrição pública de primitivas arbitrárias equivalente aos conjuntos C1/C2. Os cenários são mantidos como estratos/metadados do benchmark; não representam restrição exata do espaço de busca.",
+    "research_license": "CC BY-NC-ND 4.0; verificar permissões antes de redistribuição ou uso comercial",
+    "native_interactions_by_scenario": {
+      "C1": [
+        "add",
+        "multiply",
+        "inverse"
+      ],
+      "C2": [
+        "add",
+        "multiply",
+        "squared",
+        "exp",
+        "inverse",
+        "log",
+        "sqrt"
+      ]
+    },
+    "operator_mapping_note": "Subtração pode ser representada por pesos afins com sinal; divisão por inverso e multiplicação. C2 registra quadrado, exponencial, logaritmo e raiz quadrada, mas o conjunto não é imposto como conjunto exato de primitivas."
   }
 }
