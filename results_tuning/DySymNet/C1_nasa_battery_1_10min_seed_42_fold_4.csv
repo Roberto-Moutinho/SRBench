@@ -1,0 +1,47 @@
+[
+  {
+    "model_id": 0,
+    "expression": "-2.79384659343972*x_1 + 1038.81887604917*x_2 - 2903.08793649028*x_4 + 2021.76494875371*x_5 - 12788.847457993*(0.518870698047615*x_2 - 1)**2 - 225.071226247408*(-0.00149021932204608*x_1 + 0.554516788467362*x_2 - 1.54965570202885*x_4 + 1.07920932797715*x_5 - 21.1922860069434*(0.518870698047615*x_2 - 1)**2 - 4.38166753516623)*(0.00436434568832482*x_1 - 1.62660180875257*x_2 + 4.54570878267265*x_4 - 3.16571694867784*x_5 + 38.837043717979*(0.518870698047615*x_2 - 1)**2 + 12.853038627406) - 6552.36933932869",
+    "complexity": 71,
+    "mse_train": 1838.8922706683086,
+    "mse_test": 2072.739575825853,
+    "r2_train": 0.9876367620091947,
+    "r2_test": 0.9826034328574172,
+    "seed": 42,
+    "algorithm": "DySymNet",
+    "dataset": "nasa_battery_1_10min",
+    "scenario": "C1",
+    "fold": 4,
+    "runtime_seconds": 120.18453230000159,
+    "max_evaluations": 1000,
+    "max_time_seconds": 120.0,
+    "evaluations_used": 34,
+    "controller_r2": 0.9876367719908228,
+    "controller_mse": 1838.8907465318093,
+    "relative_error": 0.021675653985667738,
+    "n_samples": 504,
+    "n_train": 403,
+    "n_test": 101,
+    "n_features": 6,
+    "n_layers": 3,
+    "num_func_layer": 4,
+    "n_epochs1": 50,
+    "n_epochs2": 50,
+    "function_set": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "effective_functions": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "operator_constraints_exact": false,
+    "operator_constraints_note": "C1: divisão estabilizada por epsilon. C2: potência protegida Abs(x)^clip(y,-5,5), além da divisão estabilizada.",
+    "status": "success",
+    "error": null
+  }
+]

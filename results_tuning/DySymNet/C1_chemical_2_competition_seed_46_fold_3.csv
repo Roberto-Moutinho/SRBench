@@ -1,0 +1,47 @@
+[
+  {
+    "model_id": 0,
+    "expression": "0.00561279156461372*x_32 + 0.000919210154287379*x_33 - 0.00290182362497861*x_34 + 0.00164553547445982*x_45 + 0.0280707169904741*x_47 - 0.0031025605107201*x_48 + 0.0550815448352781*x_49 + 0.000895823349813251*x_50 - 0.00153169179042005*x_51 + 0.000470489224524969*x_52 + 0.154076818562579*(-0.0408405727587615*x_31 - 0.0198185944393706*x_32 + 0.0012878558817572*x_52 - 0.00274020490762887*x_53 + 21.3271864543974)/(-0.0126642113564424*x_31 + 0.00236734322135546*x_33 + 0.0109981804425983*x_34 + 0.00611120286477476*x_45 + 0.0410251434908098*x_47 + 0.00227830805228116*x_51 + 0.00326299397427032*x_52 + 0.00252504511050518*x_53 - 18.358967860041) - 26.7868409108764",
+    "complexity": 76,
+    "mse_train": 0.037224527815772415,
+    "mse_test": 0.04489707686416932,
+    "r2_train": 0.6675287879832251,
+    "r2_test": 0.6233235674146487,
+    "seed": 46,
+    "algorithm": "DySymNet",
+    "dataset": "chemical_2_competition",
+    "scenario": "C1",
+    "fold": 3,
+    "runtime_seconds": 120.44412349999766,
+    "max_evaluations": 1000,
+    "max_time_seconds": 120.0,
+    "evaluations_used": 32,
+    "controller_r2": 0.6675294377730829,
+    "controller_mse": 0.037224454754430626,
+    "relative_error": 0.04339815338480985,
+    "n_samples": 711,
+    "n_train": 569,
+    "n_test": 142,
+    "n_features": 57,
+    "n_layers": 3,
+    "num_func_layer": 4,
+    "n_epochs1": 50,
+    "n_epochs2": 50,
+    "function_set": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "effective_functions": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "operator_constraints_exact": false,
+    "operator_constraints_note": "C1: divisão estabilizada por epsilon. C2: potência protegida Abs(x)^clip(y,-5,5), além da divisão estabilizada.",
+    "status": "success",
+    "error": null
+  }
+]

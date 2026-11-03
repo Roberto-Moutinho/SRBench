@@ -1,0 +1,47 @@
+[
+  {
+    "model_id": 0,
+    "expression": "-0.014338963790042*x_1 + 0.0133395160716109*x_14 + 0.0119620843864318*x_16 - 0.00914520385255138*x_2 - 2.08528380271441e-5*x_3 + 0.0120642336432477*x_5 + 0.00971206482230447*x_6 + 0.0208437160130722*x_7 + 0.00553694303984852*x_9 + 0.0232121223752958*(-0.808924975232029*x_1 + 1.02485088269639*x_14 + 1.01342938971531*x_16 + 0.666304650566823)*(-0.687867641434443*x_1 - 1.03952269531763*x_14 - 0.781017696156052*x_16 - 0.125754028101181*x_2 + 0.00466009066426018*x_3 - 0.332751252079838*x_6 - 0.260262908673651*x_7 + 0.828492058491376) + 0.107088541337211",
+    "complexity": 65,
+    "mse_train": 1.9869300969498255e-05,
+    "mse_test": 2.077577960382137e-05,
+    "r2_train": 0.8942352883092727,
+    "r2_test": 0.9032372351828004,
+    "seed": 45,
+    "algorithm": "DySymNet",
+    "dataset": "friction_dyn_one-hot",
+    "scenario": "C1",
+    "fold": 5,
+    "runtime_seconds": 120.3530735999957,
+    "max_evaluations": 1000,
+    "max_time_seconds": 120.0,
+    "evaluations_used": 29,
+    "controller_r2": 0.894235312042958,
+    "controller_mse": 1.986929683120174e-05,
+    "relative_error": 0.038228229167372764,
+    "n_samples": 1009,
+    "n_train": 808,
+    "n_test": 201,
+    "n_features": 17,
+    "n_layers": 3,
+    "num_func_layer": 4,
+    "n_epochs1": 50,
+    "n_epochs2": 50,
+    "function_set": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "effective_functions": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "operator_constraints_exact": false,
+    "operator_constraints_note": "C1: divisão estabilizada por epsilon. C2: potência protegida Abs(x)^clip(y,-5,5), além da divisão estabilizada.",
+    "status": "success",
+    "error": null
+  }
+]
