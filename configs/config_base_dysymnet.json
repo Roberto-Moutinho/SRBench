@@ -1,9 +1,11 @@
 {
+  "algorithm": "DySymNet",
+
   "experiment": {
     "budget": {
-      "max_evaluations": 200000,
-      "max_time_seconds": 3600
+      "max_evaluations": 1000
     },
+
     "cross_validation": {
       "n_folds": 5,
       "shuffle": true,
@@ -15,19 +17,20 @@
         46
       ]
     },
-    "final_seeds": [
-      100,
-      101,
-      102,
-      103,
-      104,
-      105,
-      106,
-      107,
-      108,
-      109
+
+    "datasets": [
+      "chemical_2_competition",
+      "friction_dyn_one-hot",
+      "nasa_battery_1_10min",
+      "nikuradse_1"
+    ],
+
+    "scenarios": [
+      "C1",
+      "C2"
     ]
   },
+
   "operator_sets": {
     "C1": {
       "binary_operators": [
@@ -38,6 +41,7 @@
       ],
       "unary_operators": []
     },
+
     "C2": {
       "binary_operators": [
         "+",
@@ -53,98 +57,92 @@
       ]
     }
   },
-  "algorithm": "DySymNet",
+
   "parameters": {
-    "funcs_avail": [
-      "+",
-      "-",
-      "*",
-      "/"
-    ],
     "n_layers": 3,
     "num_func_layer": 4,
-    "num_epochs": 500,
-    "batch_size": 10,
+
     "hidden_size": 32,
     "embedding_size": 16,
+
+    "optimizer": "Adam",
+
     "learning_rate1": 0.0006,
     "learning_rate2": 0.01,
+
+    "controller_epochs": 100,
+    "batch_size": 10,
+
+    "n_epochs1": 50,
+    "n_epochs2": 50,
+
+    "summary_step": 10,
+
     "threshold": 0.05,
-    "n_epochs1": 10001,
-    "n_epochs2": 10001,
-    "max_evals": 200000
+
+    "reg_weight": 0.005,
+
+    "risk_seeking": true,
+    "risk_factor": 0.5,
+    "entropy_weight": 0.005,
+
+    "clip_grad": true,
+    "max_norm": 1.0,
+    "window_size": 50,
+
+    "refine_constants": true,
+    "n_restarts": 1,
+
+    "add_bias": false,
+
+    "use_gpu": false
   },
-  "tuning_space": {
-    "n_layers": [
-      2,
-      3,
-      4,
-      5
-    ],
-    "num_func_layer": [
-      2,
-      3,
-      4,
-      5,
-      6
-    ],
-    "num_epochs": {
-      "min": 100,
-      "max": 1000
-    },
-    "batch_size": {
-      "min": 4,
-      "max": 64
-    },
-    "hidden_size": [
-      16,
-      32,
-      64,
-      128
-    ],
-    "embedding_size": [
-      8,
-      16,
-      32,
-      64
-    ],
-    "learning_rate1": {
-      "min": 0.0001,
-      "max": 0.005,
-      "scale": "log10"
-    },
-    "learning_rate2": {
-      "min": 0.001,
-      "max": 0.05,
-      "scale": "log10"
-    },
-    "threshold": {
-      "min": 0.001,
-      "max": 0.2,
-      "scale": "log10"
-    },
-    "n_epochs1": {
-      "min": 1000,
-      "max": 20000
-    },
-    "n_epochs2": {
-      "min": 1000,
-      "max": 20000
-    },
-    "max_evals": 200000
+
+  "budget_accounting": {
+    "unit": "symbolic_candidate",
+    "counted_function": "play_episodes",
+    "max_evaluations": 1000,
+    "batch_size": 10,
+    "controller_epochs": 100,
+    "early_stopping": true
   },
+
+  "operator_compatibility": {
+    "C1": {
+      "exact_primitives": [
+        "+",
+        "-",
+        "*"
+      ],
+      "protected_primitives": [
+        "/"
+      ],
+      "operator_constraints_exact": false,
+      "note": "Div utiliza estabilização numérica por epsilon."
+    },
+
+    "C2": {
+      "protected_primitives": [
+        "/",
+        "^"
+      ],
+      "operator_constraints_exact": false,
+      "note": "Power utiliza Abs(x)^clip(y,-5,5)."
+    }
+  },
+
   "protocol_notes": {
-    "tuning_repetitions_per_fold": 5,
-    "tuning_total_executions_per_dataset_scenario_algorithm": 25,
-    "tuning_datasets": [
-      "chemical_2_competition_train.csv",
-      "friction_dyn_one-hot_train.csv",
-      "nasa_battery_1_10min_train.csv",
-      "nikuradse_1_train.csv"
-    ],
-    "selection_metric": "mean_validation_R2",
-    "tie_break": "lower_expression_complexity",
-    "preserve_all_trials": true,
-    "preserve_individual_fold_seed_results": true
+    "total_experiments": 200,
+    "datasets": 4,
+    "scenarios": 2,
+    "seeds": 5,
+    "folds": 5,
+    "selection_metric": "validation_R2",
+    "secondary_metric": "validation_MSE",
+    "complexity_metric": "sympy_preorder_node_count",
+    "test_set_used_for_search": false,
+    "validation_set_used_for_search": false,
+    "preserve_individual_results": true
   }
 }
+
