@@ -1,0 +1,47 @@
+[
+  {
+    "model_id": 0,
+    "expression": "-0.00173461617463252*x_1 - 0.366341741028303*(0.00544588573715118*x_1 - 0.886755428343179)*(-0.0020546545058695*x_1 + 0.110417861338888*x_2 - 0.145020527167365) + 0.794625035172826 + 0.0333036926291072*(0.00544588573715118*x_1 - 0.886755428343179)/(0.321630057277604 - 0.0039086046668183*x_1)",
+    "complexity": 34,
+    "mse_train": 0.0006194477393573382,
+    "mse_test": 0.0007869767495672807,
+    "r2_train": 0.9817264497491662,
+    "r2_test": 0.9781225700791455,
+    "seed": 46,
+    "algorithm": "DySymNet",
+    "dataset": "nikuradse_1",
+    "scenario": "C1",
+    "fold": 2,
+    "runtime_seconds": 120.0795608000044,
+    "max_evaluations": 1000,
+    "max_time_seconds": 120.0,
+    "evaluations_used": 26,
+    "controller_r2": 0.9817264577291231,
+    "controller_mse": 0.0006194474580489586,
+    "relative_error": 0.04608313841721993,
+    "n_samples": 230,
+    "n_train": 184,
+    "n_test": 46,
+    "n_features": 2,
+    "n_layers": 3,
+    "num_func_layer": 4,
+    "n_epochs1": 50,
+    "n_epochs2": 50,
+    "function_set": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "effective_functions": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "operator_constraints_exact": false,
+    "operator_constraints_note": "C1: divisão estabilizada por epsilon. C2: potência protegida Abs(x)^clip(y,-5,5), além da divisão estabilizada.",
+    "status": "success",
+    "error": null
+  }
+]
