@@ -1,0 +1,2 @@
+﻿algorithm,dataset,operator_class,operators,fold,seed,n_train,n_validation,n_external_test,features,expression,complexity,runtime_seconds,status,error
+PySIPS,nikuradse_1,C2,"[""+"",""-"",""*"",""/"",""exp"",""log"",""sqrt"",""pow""]",4,46,184,46,132,"[""r_k"",""log_Re""]",null,null,5.907603045001451,failed,ValueError: Input contains NaN.
