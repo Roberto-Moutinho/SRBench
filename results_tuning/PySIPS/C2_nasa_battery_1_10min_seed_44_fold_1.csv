@@ -1,0 +1,2 @@
+﻿algorithm,dataset,operator_class,operators,fold,seed,n_train,n_validation,n_external_test,features,expression,complexity,runtime_seconds,status,error
+PySIPS,nasa_battery_1_10min,C2,"[""+"",""-"",""*"",""/"",""exp"",""log"",""sqrt"",""pow""]",1,44,403,101,132,"[""dischargeCycles"",""initialCapacity"",""Voltage0"",""DeltaVoltage3"",""Voltage10"",""Temperature10""]",null,null,72.16439828799957,failed,ValueError: Input contains NaN.
